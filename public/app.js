@@ -54,7 +54,7 @@ function renderInsights(data) {
   const recent = data.recent || [];
   $("recent-clicks").innerHTML = recent.length ? `<div class="activity-row activity-head"><span>SHORT LINK</span><span>TIME</span><span>COUNTRY</span><span>DEVICE</span></div>` + recent.map(x => `<div class="activity-row"><span>${esc(x.slug)}</span><span>${new Date(x.clicked_at).toLocaleString()}</span><span>${esc(x.country)}</span><span>${esc(x.device)}</span></div>`).join("") : `<div class="empty" style="padding:18px">No clicks recorded yet.</div>`;
 }
-\nfunction renderLinks(links) {
+function renderLinks(links) {
   $("link-list").innerHTML = links.length ? links.map(l => `<div class="link-row">
     <div><div class="link-name">${esc(l.title || l.slug)}</div><div class="link-meta">${esc(l.slug)} · ${new Date(l.created_at).toLocaleDateString()}</div></div>
     <div class="link-url">${esc(l.original_url)}</div><div class="link-meta">${Number(l.clicks||0).toLocaleString()} clicks</div>
