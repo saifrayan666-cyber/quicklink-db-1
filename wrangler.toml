@@ -1,4 +1,4 @@
-name = "quicklink-personal"
+name = "quicklink-db-1"
 main = "src/index.js"
 compatibility_date = "2026-11-25"
 
