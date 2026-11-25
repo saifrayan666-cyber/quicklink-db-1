@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18"><title>QuickLink — Personal URL Shortener</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">↗</div><div><b>QuickLink</b><small>PERSONAL WORKSPACE</small></div></div>
+    <nav><button class="nav active" data-view="dashboard">▦ <span>Dashboard</span></button><button class="nav" data-view="links">↗ <span>My Links</span></button><button class="nav" data-view="analytics">◷ <span>Analytics</span></button></nav>
+    <div class="side-bottom"><div class="status-dot"></div><span>Edge service ready</span><button id="logout" title="Logout">↪</button></div>
+  </aside>
+  <main class="main">
+    <header><div><div class="eyebrow">YOUR LINK CONTROL CENTER</div><h1 id="page-title">Dashboard</h1></div><div class="header-right"><span class="live"><i></i> LIVE TRACKING</span><button class="icon-btn" id="refresh" title="Refresh">⟳</button></div></header>
+    <section id="login-panel" class="login-wrap hidden"><div class="login-card"><div class="brand-icon big">↗</div><h2>Welcome back</h2><p>Enter your admin password to access your private links.</p><form id="login-form"><input id="password" type="password" placeholder="Admin password" required><button class="primary full">Unlock dashboard</button></form><div id="login-error" class="error"></div></div></section>
+    <section id="app-content" class="hidden">
+      <section class="create-card">
+        <div class="section-top"><div><div class="eyebrow">CREATE A NEW SHORT LINK</div><h2>Make your link shorter.</h2></div><span class="bolt">⚡ EDGE FAST</span></div>
+        <form id="create-form" class="create-form">
+          <label class="url-field"><span>DESTINATION URL</span><input id="url" type="url" placeholder="https://example.com/your-long-url" required></label>
+          <div class="form-row"><label><span>LINK TITLE <em>OPTIONAL</em></span><input id="title" placeholder="Campaign / project name"></label><label><span>CUSTOM ALIAS <em>OPTIONAL</em></span><input id="alias" placeholder="my-link"></label><button class="primary create-btn">Shorten link <b>↗</b></button></div>
+        </form><div id="create-result" class="result hidden"></div><div id="create-error" class="error"></div>
+      </section>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-label">TOTAL CLICKS <span>↗</span></div><strong id="total-clicks">—</strong><small>All your short links</small></div>
+        <div class="stat-card"><div class="stat-label">TOTAL LINKS <span>⌁</span></div><strong id="total-links">—</strong><small>Created in your workspace</small></div>
+        <div class="stat-card"><div class="stat-label">COUNTRIES <span>◎</span></div><strong id="total-countries">—</strong><small>Unique locations recorded</small></div>
+        <div class="stat-card"><div class="stat-label">DEVICES <span>▣</span></div><strong id="device-count">—</strong><small>Device categories</small></div>
+      </div>
+      <section class="panel"><div class="panel-head"><div><div class="eyebrow">PERFORMANCE</div><h2>Click activity</h2></div><span class="muted">Last 14 active days</span></div><div id="chart" class="chart"><div class="empty">Your click activity will appear here.</div></div></section>
+      <section class="panel"><div class="panel-head"><div><div class="eyebrow">LINK MANAGEMENT</div><h2>Recent links</h2></div><button class="text-btn" data-goto="links">View all →</button></div><div id="link-list"></div></section>
+      <section class="panel"><div class="panel-head"><div><div class="eyebrow">AUDIENCE INSIGHTS</div><h2>Where clicks come from</h2></div><span class="muted">All recorded clicks</span></div><div class="insight-grid"><div><h3>Top countries</h3><div id="country-list" class="insight-list"></div></div><div><h3>Devices</h3><div id="device-list" class="insight-list"></div></div></div></section>
+      <section class="panel"><div class="panel-head"><div><div class="eyebrow">LATEST ACTIVITY</div><h2>Recent clicks</h2></div></div><div id="recent-clicks"></div></section>
+    </section>
+    <footer>QUICKLINK PERSONAL · YOUR DATA, YOUR LINKS</footer>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body></html>
